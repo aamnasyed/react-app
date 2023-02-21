@@ -1,56 +1,45 @@
 import {useState} from "react";
 import {createRoot} from "react-dom/client";
-// import ReactDom, {createRoot} from "react-dom/client"
-// import {useState} from "react";
 
 // Components
 import Header from "./components/Header";
 import Cat from "./components/Cat";
 import BottomContainer from "./components/BottomContainer";
 
+import {Home, About, Portfolio} from "/.components";
 
-// let mainHomePage = ["navBttn", "header", "cat", "bottomContainer"];
+ import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
-const mainPage = () => {
-
-    const [homePage, setHomePage] = useState (mainHomePage)
+const MainPage = () => {
 
     return (
-        <section>
-            <nav class="navBttn">
-                {<ul>
-                    <li class="navBar" href="home.html">Home </li>
-                    <li class="navBar" href="about.html"> About </li>
-                    <li class="navBar" href="portfolio.html"> Portfolio </li>
-                    
-                </ul>}
+        <BrowserRouter>
+            <section>
+                <nav class="navBttn">
+                    <link to="/home">Home</link>
+                    <link to="/about">About</link>
+                    <link to="/portfolio"> Portfolio</link>
+                </nav>
 
-            </nav>
+                <Header/>
 
-            <Header/>
-
-            <Cat/>
-                    
-           <BottomeContainer/>
-        
-        </section>
-        
+                <Cat/>
+                        
+                <BottomContainer/>
+                <Routes>
+                    <Route path = "/home" element = {<Home/>}/>
+                    <Route path = "/about" element = {<About/>}/>
+                    <Route path = "/portfolio" element = {<Portfolio/>}/>
+                </Routes>
+            
+            </section>
+        </BrowserRouter>
     )
 
 }; 
 
 let homePageHeader = document.getElementById("mainPage");
 let rootHome = createRoot(homePageHeader)
-rootHome.render(<Header/>)
-
-
-
-let catElement = document.getElementById("mainPage");
-let rootCat = createRoot(catElement)
-rootCat.render(<Cat/>)
-
-let footerElement = document.getElementById("mainPage");
-let rootFoot = createRoot(footerElement)
-rootFoot.render(<BottomContainer/>)
+rootHome.render(<MainPage/>)
 
 

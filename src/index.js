@@ -21,7 +21,8 @@ const mainPage = () => {
                 {<ul>
                     <li class="navBar" href="home.html">Home </li>
                     <li class="navBar" href="about.html"> About </li>
-                    <li class="navBar" href="portfolio.html"> Portfolio </li> 
+                    <li class="navBar" href="portfolio.html"> Portfolio </li>
+                    
                 </ul>}
 
             </nav>
